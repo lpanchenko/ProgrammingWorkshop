@@ -1,4 +1,4 @@
-package main.java.com.company;
+package Tasks;
 
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-public class Main {
+public class HW1 {
 
     public static void main(String[] args) throws IOException {
 
@@ -44,7 +44,6 @@ public class Main {
             String line;
             while ((line = rd.readLine()) != null) {
                 sb.append(line).append("\n");
-                System.out.println(line);
             }
             is.close();
             return new JSONObject(sb.toString());
