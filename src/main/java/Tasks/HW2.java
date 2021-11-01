@@ -10,23 +10,11 @@ public class HW2 {
 
     public static void main(String[] args) {
 
-        System.out.println("Enter text: ");
         Scanner sc = new Scanner(System.in);
-        String text = sc.nextLine();
-
-        System.out.println("Enter max length: ");
-        int maxLength = sc.nextInt();
-        sc.nextLine();
-
-        System.out.println("Enter prohibited words: ");
-        List <String> badWorlds = new ArrayList<>();
-        while (sc.hasNextLine())
-        {
-            String line = sc.nextLine();
-            if (line == null || line.isEmpty())
-                break;
-            badWorlds.add(line);
-        }
+        // Get text data from console input
+        String text = getText(sc);
+        int maxLength = getMaxLength(sc);
+        List<String> badWorlds = getBadWorlds(sc);
         sc.close();
 
         int length = text.length();
@@ -36,6 +24,32 @@ public class HW2 {
 
         JSONObject json = GetJson (text, length, lengthWithoutSpaces, pureText, pureShortText);
         System.out.println(json);
+    }
+
+    private static List<String> getBadWorlds(Scanner sc) {
+        System.out.println("Enter prohibited words: ");
+        List <String> badWorlds = new ArrayList<>();
+        while (sc.hasNextLine())
+        {
+            String line = sc.nextLine();
+            if (line == null || line.isEmpty())
+                break;
+            badWorlds.add(line);
+        }
+        return badWorlds;
+    }
+
+    private static int getMaxLength(Scanner sc) {
+        System.out.println("Enter max length: ");
+        int maxLength = sc.nextInt();
+        sc.nextLine();
+        return maxLength;
+    }
+
+    private static String getText(Scanner sc) {
+        System.out.println("Enter text: ");
+        String text = sc.nextLine();
+        return text;
     }
 
     private static JSONObject GetJson(String text, int length, int lengthWithoutSpaces, String pureText, String pureShortText) {
