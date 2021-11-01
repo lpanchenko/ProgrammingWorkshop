@@ -69,6 +69,4 @@ public class HW3 {
             return  Character.toUpperCase(c);
         return Character.toLowerCase(c);
     }
-
-
 }
