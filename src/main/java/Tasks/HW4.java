@@ -32,7 +32,6 @@ public class HW4 {
     }
 
     static String[] split(String line) {
-        String [] temp = line.trim().split("[\\s\\n]+");
-        return temp;
+        return line.trim().split("[\\s\\n]+");
     }
 }
