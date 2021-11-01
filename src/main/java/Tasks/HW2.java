@@ -64,17 +64,15 @@ public class HW2 {
 
     private static String getShortText(String text, int maxLength) {
 
-        String shortText = text.substring(0, maxLength + 1);
-        if (text.length() > maxLength)
-            return shortText + "...";
-        return shortText;
+        if (maxLength >= text.length())
+            return text;
+        return text.substring(0, maxLength + 1) + "...";
     }
 
     private static String getPureText(String text, ArrayList<String> worlds) {
-
         String pureText = new String(text);
         for (int i = 0; i < worlds.stream().count(); i++) {
-            pureText = pureText.replace(worlds.get(i), "***");
+            pureText = pureText.replaceAll("\\b" + worlds.get(i) + "\\b","***");
         }
         return pureText;
     }
